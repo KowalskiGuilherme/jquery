@@ -1,0 +1,20 @@
+{% for empresa in empresas %}
+<tr>
+    <td>{{ empresa.id }}</td>
+    <td>{{ empresa.verba }}</td>
+    <td>{{ empresa.title }}</td>
+    <td>{{ empresa.last_updated }}</td>
+    <td>{{ empresa.group }}</td>
+    <td>
+        <button type="button"
+                class="btn btn-warning btn-sm js-update-empresa"
+                data-url="{% url 'empresa_update' empresa.id %}">
+            <span class="glyphicon glyphicon-pencil"></span> Edit
+        </button>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="7" class="text-center bg-warning">No Empresas</td>
+</tr>
+{% endfor %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+  <h1 class="page-header">empresas</h1>
+<p>
+    <button type="button"
+            class="btn btn-primary js-create-empresa"
+            data-url="{% url 'empresa_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      New empresa
+    </button>
+  </p>
+  <table class="table" id="empresa-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>verba</th>
+        <th>nome</th>
+        <th>last_updated</th>
+        <th>group</th>
+      </tr>
+    </thead>
+    <tbody>
+         {% include 'empresa/includes/partial_empresa_list.html' %}
+    </tbody>
+  </table>
+
+ <div class="modal fade" id="modal-empresa">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+    </div>
+ </div>
+{% endblock %}
+
+{% block javascript %}
+ <script src="{% static 'js/empresas.js' %}"></script>
+{% endblock %}
